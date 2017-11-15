@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Blocks</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Blocks</h1>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><span id="status-bar"></span></div>
+        <div class="panel-body">
+          <button class="btn btn-add" data-type="simple">Add Simple block</button>
+          <button class="btn btn-add" data-type="complex">Add Complex block</button>
+          <div id="block-list"></div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script id="header-template" type="text/x-handlebars-template">
+			<span id="blocks-count">Total: <strong>{{blockCount}}</strong></span>
+			&nbsp;&nbsp;Selected: <strong>{{selectedCount}}</strong> ({{redCount}} red, {{greenCount}} green)
+		</script>
+
+    <script id="block-template" type="text/x-handlebars-template">
+        {{#this}}
+        <div class="block clickable alert alert-dismissible {{#if isComplex}}{{#if state}}alert-success{{else}}alert-danger{{/if}}{{else}}well{{/if}} {{#if selected}}active{{/if}}" role="alert" data-id="{{id}}">
+          <button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+          {{text}}
+        </div>
+        {{/this}}
+    </script>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="node_modules/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

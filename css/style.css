@@ -1,0 +1,12 @@
+#block-list {
+    margin-top: 10px;
+}
+
+#block-list .well {
+    padding: 15px;
+    padding-right: 35px;
+}
+
+.block.active {
+    border: 2px rgb(80, 78, 78) solid;
+}
